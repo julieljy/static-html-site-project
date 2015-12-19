@@ -35,11 +35,11 @@
     </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="/js/jquery-1.11.3.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="js/bootstrap.min.js"></script>
 <script src="shopping.js"></script>
-<script type="text/html" id="1">
+<script type="text/html" id="print">
     <table class="table">
         <tr>
             <th>名称</th>
@@ -48,7 +48,7 @@
             <th>单价</th>
             <th>小计</th>
         </tr>
-        <% _.forEach(items_list, function(item) { %>
+        <% _.forEach(result.items_list, function(item) { %>
         <tr>
             <td><%- item.name %></td>
             <td><%- item.count %></td>
@@ -79,7 +79,7 @@
         <th>总计</th>
         <th>节省</th>
     </tr>
-    <% _.forEach(account, function(item) { %>
+    <% _.forEach(result.account, function(item) { %>
     <tr>
         <td><%- item.all %></td>
         <td><%- item.save %></td>

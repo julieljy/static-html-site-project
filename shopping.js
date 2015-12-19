@@ -1,75 +1,93 @@
 $(document).ready(function(){
-    var inputs=JSON.parse(localStorage.getItem('inputs'));
-    var all_items=loadAllItems();
-    var promotions=loadPromotions();
-    var items_buy=get_items_buy(inputs,all_items);
-    var items_buy_count=get_items_buy_count(items_buy);
-    var items_free=get_items_free(items_buy_count,loadPromotions());
-    var items_buy_count_total=get_items_buy_count_total(items_buy_count,items_free);
-    var all_total=get_all_total(items_buy_count_total,items_free);
-    var result=get_result(items_buy_count_total,items_free,all_total);
+    $.get('allItem.json',function(){
+//         var all_items=data;
+//         alert(all_items);
+         }).done(function(allItems){
+            $.get('promotions.json',function(){
+            }).done(function(loadPromotions){
+                var inputs=JSON.parse(localStorage.getItem('inputs'));
+                var all_items=allItems;
+                var promotions=loadPromotions;
+                var items_buy=get_items_buy(inputs,all_items);
+                var items_buy_count=get_items_buy_count(items_buy);
+                var items_free=get_items_free(items_buy_count,promotions);
+                var items_buy_count_total=get_items_buy_count_total(items_buy_count,items_free);
+                var all_total=get_all_total(items_buy_count_total,items_free);
+                var result=get_result(items_buy_count_total,items_free,all_total);
+                print(result);
+            })
+         });
+//    $.get('promotions',function(data){
+//         var promotions=data;
+//         alert(promotions);
+
+//    var items_buy=get_items_buy(inputs,all_items);
+//    var items_buy_count=get_items_buy_count(items_buy);
+//    var items_free=get_items_free(items_buy_count,promotions);
+//    var items_buy_count_total=get_items_buy_count_total(items_buy_count,items_free);
+//    var all_total=get_all_total(items_buy_count_total,items_free);
+//    var result=get_result(items_buy_count_total,items_free,all_total);
 //    var print_result=print(result);
-    print(result);
-//    var template_string = $("#1").text();
+//    print(result);
+//    var template_string = $("#print").text();
 //    var compiled = _.template(template_string);
 //    $('.order').append($(compiled({'result':result.items_list})));
-
 });
-function loadAllItems() {
-    return [
-        {
-            barcode: 'ITEM000000',
-            name: '美国短毛猫',
-            unit: '只',
-            price: 1000.00
-        },
-        {
-            barcode: 'ITEM000001',
-            name: '孟买猫',
-            unit: '只',
-            price: 2000.00
-        },
-        {
-            barcode: 'ITEM000002',
-            name: '波斯猫',
-            unit: '只',
-            price: 3000
-        },
-        {
-            barcode: 'ITEM000003',
-            name: '流浪猫',
-            unit: '只',
-            price: 150.00
-        },
-        {
-            barcode: 'ITEM000004',
-            name: '伯曼猫',
-            unit: '只',
-            price: 2500.00
-        },
-        {
-            barcode: 'ITEM000005',
-            name: '欧西猫',
-            unit: '只',
-            price: 450.00
-        }
-    ];
-}
-
-function loadPromotions() {
-    return [
-        {
-            type: 'BUY_TWO_GET_ONE_FREE',
-            barcodes: [
-                'ITEM000000',
-                'ITEM000001',
-                'ITEM000005'
-            ]
-        }
-    ];
-}
+//function loadAllItems() {
+//    return [
+//        {
+//            barcode: 'ITEM000000',
+//            name: '美国短毛猫',
+//            unit: '只',
+//            price: 1000.00
+//        },
+//        {
+//            barcode: 'ITEM000001',
+//            name: '孟买猫',
+//            unit: '只',
+//            price: 2000.00
+//        },
+//        {
+//            barcode: 'ITEM000002',
+//            name: '波斯猫',
+//            unit: '只',
+//            price: 3000
+//        },
+//        {
+//            barcode: 'ITEM000003',
+//            name: '流浪猫',
+//            unit: '只',
+//            price: 150.00
+//        },
+//        {
+//            barcode: 'ITEM000004',
+//            name: '伯曼猫',
+//            unit: '只',
+//            price: 2500.00
+//        },
+//        {
+//            barcode: 'ITEM000005',
+//            name: '欧西猫',
+//            unit: '只',
+//            price: 450.00
+//        }
+//    ];
+//}
+//
+//function loadPromotions() {
+//    return [
+//        {
+//            type: 'BUY_TWO_GET_ONE_FREE',
+//            barcodes: [
+//                'ITEM000000',
+//                'ITEM000001',
+//                'ITEM000005'
+//            ]
+//        }
+//    ];
+//}
 //function1
-function get_weight(a,items_buy,inputs){
+function get_weight(a,items_buy,inputs,all_items){
     var need_weight=[];
     need_weight=inputs[a].split('-');
     for(var k=0;k<all_items.length;k++){
@@ -93,7 +111,7 @@ function get_items_buy(inputs,all_items){
             }
         }
         if(check==0){
-            get_weight(i,items_buy,inputs);
+            get_weight(i,items_buy,inputs,all_items);
         }
     }
     return items_buy;
@@ -189,8 +207,8 @@ function get_all_total(items_buy_count_total,items_free){
 //function 9
 function get_result(items_buy_count_total,items_free,all_total){
     var result={items_list:items_buy_count_total,
-            gift:items_free,
-            account:all_total};
+                gift:items_free,
+                account:all_total};
     return result;
 }
 //function 10
@@ -211,9 +229,7 @@ function print(result){
     +'(元)</td><td>'+result.account[0].save.toFixed(2)+'(元)</td></tr></table>'
     return print_result;
     */
-    var template_string = $("#1").text();
+    var template_string = $("#print").text();
     var compiled = _.template(template_string);
-    $('.order').append(compiled({'items_list':result.items_list,
-                                   'gift':result.gift,
-                                   'account':result.account}));
+    $('.order').append(compiled({'result':result}));
 }
