@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <script src="lodash.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>逗猫会——购物车</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>逗猫会<small>我的购物车</small></h1>
+        </div>
+        <div class="row order">
+            <h3>订单确认</h3>
+        </div>
+        <div class="row">
+            <div class="col-md-11 text-right">
+                <a class="btn btn-primary" href="#" role="button">确认购买</a>
+            </div>
+        </div>
+    </div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="shopping.js"></script>
+<script type="text/html" id="1">
+    <table class="table">
+        <tr>
+            <th>名称</th>
+            <th>数量</th>
+            <th>单位</th>
+            <th>单价</th>
+            <th>小计</th>
+        </tr>
+        <% _.forEach(items_list, function(item) { %>
+        <tr>
+            <td><%- item.name %></td>
+            <td><%- item.count %></td>
+            <td><%- item.unit %></td>
+            <td><%- item.price %></td>
+            <td><%- item.total %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <h3>优惠</h3>
+    <table class="table">
+        <tr>
+            <th>名称</th>
+            <th>数量</th>
+            <th>单位</th>
+        </tr>
+        <% _.forEach(result.gift, function(item) { %>
+        <tr>
+            <td><%- item.name %></td>
+            <td><%- item.count %></td>
+            <td><%- item.unit %></td>
+        </tr>
+        <% }); %>
+    </table>
+    <h3>合计</h3>
+    <table class="table">
+    <tr>
+        <th>总计</th>
+        <th>节省</th>
+    </tr>
+    <% _.forEach(account, function(item) { %>
+    <tr>
+        <td><%- item.all %></td>
+        <td><%- item.save %></td>
+    </tr>
+    <% }); %>
+    </table>
+</script>
+</body>
+</html>

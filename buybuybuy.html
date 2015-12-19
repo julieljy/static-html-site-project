@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+      <script src="lodash.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>逗猫会</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+  </head>
+  <body>
+  <div class="container">
+      <div class="row">
+          <div class="col-md-1">
+              <center><img src="practice/xiaohei.gif" width="100px" height="100px"/></center>
+          </div>
+          <div class="col-md-11 head_title" >
+                  <h1>逗猫会<small>一家逗猫的网站</small></h1>
+          </div>
+      </div>
+      <div class="row">
+          <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                  <!-- Brand and toggle get grouped for better mobile display -->
+                  <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                          <span class="sr-only">Toggle navigation</span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#">双十二</a>
+                  </div>
+
+                  <!-- Collect the nav links, forms, and other content for toggling -->
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                      <ul class="nav navbar-nav">
+                          <li class="active"><a href="#">波斯猫<span class="sr-only">(current)</span></a></li>
+                          <li><a href="#">伯曼猫</a></li>
+                          <li><a href="#">孟买猫</a></li>
+                          <li><a href="#">欧西猫</a></li>
+                          <li><a href="#">日本短尾猫</a></li>
+                          <li><a href="#">美国短毛猫</a></li>
+                          <li><a href="#">流浪猫</a></li>
+                      </ul>
+                      <a class="btn btn-primary navbar-btn navbar-right btn-default" href="shopping cart.html" role="button">购物车</a>
+                      <form class="navbar-form navbar-right" role="search">
+                          <div class="form-group">
+                              <input type="text" class="form-control" placeholder="今天你要哪只喵？">
+                          </div>
+                          <button type="submit" class="btn btn-default">喵一下</button>
+                      </form>
+
+                      <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                 aria-expanded="false">在售分类<span class="caret"></span></a>
+                              <ul class="dropdown-menu">
+                                  <li><a href="#">Action</a></li>
+                                  <li><a href="#">Another action</a></li>
+                                  <li><a href="#">Something else here</a></li>
+                                  <li role="separator" class="divider"></li>
+                                  <li><a href="#">Separated link</a></li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div><!-- /.navbar-collapse -->
+              </div><!-- /.container-fluid -->
+          </nav>
+      </div>
+  </div>
+  <div class="row text-center">
+      <div class="jumbotron" >
+          <h1>双十二惊喜</h1>
+          <p>带喵喵回家，全场猫猫买三免一！</p>
+          <p><a class="btn btn-primary btn-lg" href="#" role="button">买买买</a></p>
+      </div>
+  </div>
+  <div class="row text-center">
+      <div class="col-md-3">
+          <div class="list-group">
+              <a href="#" class="list-group-item active">时尚猫（买3免1）</a>
+              <a href="#" class="list-group-item">百搭猫（买3免1）</a>
+              <a href="#" class="list-group-item">闪耀猫（买3免1）</a>
+              <a href="#" class="list-group-item">幼儿猫（买3免1）</a>
+              <a href="#" class="list-group-item">家居猫（买3免1）</a>
+              <a href="#" class="list-group-item">魅力猫（买3免1）</a>
+              <a href="#" class="list-group-item">优选猫（买3免1）</a>
+              <a href="#" class="list-group-item">人气猫（买3免1）</a>
+              <a href="#" class="list-group-item">智能猫（买3免1）</a>
+          </div>
+      </div>
+      <div class="col-md-9">
+          <div class="row">
+              <div class="col-md-3">
+                  <a href="#" class="thumbnail">
+                      <img src="practice/1.png" alt="1">
+                  </a>
+                  <div class="input-group">
+                      <button class=" btn btn-default">+</button>
+                      <input type="text" placeholder="0">
+                      <button class=" btn btn-default">-</button>
+                  </div>
+                  <a href="#" class="btn btn-primary add_to_cart" data-barcode="ITEM000000">加入购物车</a>
+              </div>
+              <div class="col-md-3">
+                  <a href="#" class="thumbnail">
+                      <img src="practice/2.jpg" alt="2">
+                  </a>
+                  <a href="#" class="btn btn-default add_to_cart" data-barcode="ITEM000001">加入购物车</a>
+              </div>
+              <div class="col-md-3">
+                  <a href="#" class="thumbnail">
+                      <img src="practice/3.png" alt="3">
+                  </a>
+                  <a href="#" class="btn btn-default add_to_cart" data-barcode="ITEM000002">加入购物车</a>
+              </div>
+              <div class="col-md-3">
+                  <a href="#" class="thumbnail">
+                      <img src="practice/4.jpg" alt="4">
+                  </a>
+                  <a href="#" class="btn btn-default add_to_cart" data-barcode="ITEM000003">加入购物车</a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="application.js"></script>
+  </body>
+</html>
