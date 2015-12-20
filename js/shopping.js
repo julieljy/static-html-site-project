@@ -1,9 +1,11 @@
 $(document).ready(function(){
-    $.get('allItem.json',function(){
+//    $.get('allItem.json',function(){
+      $.get("http://localhost:8080/allItems",function(){
 //         var all_items=data;
 //         alert(all_items);
          }).done(function(allItems){
-            $.get('promotions.json',function(){
+//            $.get('promotions.json',function(){
+              $.get("http://localhost:8080/promotions",function(){
             }).done(function(loadPromotions){
                 var inputs=JSON.parse(localStorage.getItem('inputs'));
                 var all_items=allItems;
